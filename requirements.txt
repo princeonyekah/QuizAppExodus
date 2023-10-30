@@ -1,4 +1,2 @@
 Flask
 Gunicorn
-
- <!-- <a href="{{url_for('promote', id = eachuser['id'])}}" class="text-dark border list-group-item list-group-item-action" > -->
