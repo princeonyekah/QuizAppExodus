@@ -1,18 +1,43 @@
-{% macro show_links() %}
+{% macro show_links(user) %}
 
-<ul class="nav justify-content-center bg-dark p-3">
+<ul class="nav justify-content-center p-3 headernav">
     <li class="nav-item">
-      <a class="nav-link active text-light" aria-current="page" href="{{url_for('index')}}">Quiz App Flask</a>
+      <a class="nav-link active textdark" aria-current="page" href="{{url_for('index')}}">Quiz App Flask</a>
+    </li>
+
+    {% if not user %}
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{url_for('login')}}">Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-light" href="{{url_for('login')}}">Login</a>
+      <a class="nav-link text-dark" href="{{url_for('register')}}">Register</a>
     </li>
+    {% endif %}
     <li class="nav-item">
-      <a class="nav-link text-light" href="{{url_for('register')}}">Register</a>
+      <a class="nav-link text-dark" href="{{url_for('askquestions')}}">Ask Questions</a>
     </li>
+
     <li class="nav-item">
-      <a class="nav-link text-light" href="{{url_for('logout')}}">Logout</a>
+      <a class="nav-link text-dark" href="{{url_for('answerquestions')}}">Answer Question</a>
     </li>
+
+    {% if user %}
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{url_for('allusers')}}"> All Users </a>
+    </li>
+    {% endif %}
+
+    {% if user %}
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{url_for('logout')}}">Logout</a>
+    </li>
+    {% endif %}
+
+    {% if user %}
+    <li>
+      <a class="nav-link text-dark" href="#"> User: {{user['name']}}</a>
+    </li>
+    {% endif %}
   </ul>
 
   {% endmacro%}
