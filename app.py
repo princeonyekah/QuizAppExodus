@@ -77,11 +77,13 @@ def register():
 
 @app.route('/askquestions')
 def askquestions():
-    return render_template('askquestions.html')
+    user = get_current_user()
+    return render_template('askquestions.html', user = user)
 
 @app.route('/answerquestions')
 def askquestions():
-    return render_template('answerquestions.html')
+    user = get_current_user()
+    return render_template('answerquestions.html', user = user)
 
 
 @app.route('/allusers', methods = ['POST', 'GET'])
